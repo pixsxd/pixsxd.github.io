@@ -35,34 +35,20 @@
       padding: 5px;
       border-bottom: 1px solid #ddd;
     }
-    #onlineUsers {
-      margin-bottom: 20px;
-    }
-    #onlineUsers ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    #onlineUsers ul li {
-      margin: 5px 0;
-    }
   </style>
 </head>
 <body>
-  <div id="onlineUsers">
-    <strong>Online Users:</strong>
-    <ul id="usersList"></ul>
-  </div>
   <div id="chatbox"></div>
   <input id="messageInput" type="text" placeholder="Type a message" />
   <button id="sendButton">Send</button>
 
-  <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-OBOzwtjzkMzk6/vXTJqthmXlBk9AK4ZbyFlOmdDxrfYxxhrw5C+31p7mqgEaAgK7" crossorigin="anonymous"></script>
+  <!-- Update the script to point to your Render.com server -->
+  <script src="https://chat-mxvb.onrender.com/socket.io/socket.io.js"></script>
   <script>
-    const socket = io("https://chat-mxvb.onrender.com"); // Replace with your Render server URL
+    const socket = io('https://chat-mxvb.onrender.com'); // Replace with your actual Render.com URL
     const chatbox = document.getElementById('chatbox');
     const messageInput = document.getElementById('messageInput');
     const sendButton = document.getElementById('sendButton');
-    const usersList = document.getElementById('usersList');
     let name = '';
 
     // Get the assigned name from the server
@@ -78,16 +64,6 @@
       messageDiv.textContent = `${data.name}: ${data.message}`;
       chatbox.appendChild(messageDiv);
       chatbox.scrollTop = chatbox.scrollHeight; // Scroll to the bottom
-    });
-
-    // Update online users list
-    socket.on('onlineUsers', (onlineUsers) => {
-      usersList.innerHTML = ''; // Clear the list
-      onlineUsers.forEach((user) => {
-        const li = document.createElement('li');
-        li.textContent = user;
-        usersList.appendChild(li);
-      });
     });
 
     // Send message when button is clicked
