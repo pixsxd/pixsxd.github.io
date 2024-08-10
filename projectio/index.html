@@ -54,6 +54,29 @@
             border: 1px solid black;
             display: none;
         }
+
+        #infoText {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: black;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            display: none; /* Hidden by default */
+            background: rgba(255, 255, 255, 0.9); /* Slightly more opaque background */
+            padding: 10px; /* Add some padding around the text */
+            border-radius: 8px; /* Smooth corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: shadow for better visibility */
+            z-index: 10;
+            user-select: none; /* Prevent text selection */
+            position: relative; /* For positioning the close button */
+        }
+
+        #infoText span {
+            display: block;
+            margin-bottom: 5px; /* Add space between lines */
+        }
     </style>
 </head>
 <body>
@@ -63,8 +86,22 @@
         <button id="playButton">Play</button>
     </div>
     <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <div id="infoText">
+        <span>- Press Space Bar to attack</span>
+        <span>- Aim with Mouse Cursor</span>
+    </div>
 
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script> <!-- Make sure the version matches your server -->
     <script src="client.js"></script>
+    <script>
+        document.getElementById('playButton').addEventListener('click', () => {
+            const playerName = document.getElementById('nameInput').value;
+            if (playerName) {
+                document.getElementById('nameScreen').style.display = 'none';
+                document.getElementById('gameCanvas').style.display = 'block';
+                document.getElementById('infoText').style.display = 'block'; // Show text when play button is clicked
+            }
+        });
+    </script>
 </body>
 </html>
