@@ -1,4 +1,4 @@
-const socket = io('https://gun-x0y0.onrender.com');
+const socket = io('https://gun-x0y0.onrender.com'); // Replace with your Render URL
 const canvas = document.getElementById('gameCanvas');
 const context = canvas.getContext('2d');
 let players = {};
