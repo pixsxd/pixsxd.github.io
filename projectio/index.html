@@ -1,1 +1,70 @@
-  <p>io site</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GunGun XD</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        #nameScreen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        #gameTitle {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        #nameInput {
+            width: 200px;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        #playButton {
+            width: 126px;
+            padding: 10px;
+            font-size: 20px;
+            color: white;
+            background-color: #0c9467;
+            border: none;
+            cursor: pointer;
+            border-radius: 12px; /* Smooth curved corners */
+            transition: background-color 0.3s ease;
+        }
+
+        #playButton:hover {
+            background-color: #0c9467e0;
+        }
+
+        #gameCanvas {
+            border: 1px solid black;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="nameScreen">
+        <div id="gameTitle">GunGun XD</div>
+        <input type="text" id="nameInput" placeholder="Enter your name" maxlength="14">
+        <button id="playButton">Play</button>
+    </div>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>
