@@ -1,14 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixs</title>
+    <title>pixsxd</title>
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow-x: hidden; /* Prevent horizontal scrollbar */
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            flex-shrink: 0;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .nav-text {
+            display: none;
+            gap: 15px;
+        }
+        .nav-text a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+        .nav-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5em;
+        }
+        .nav-menu-items {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 4px;
+            width: 150px;
+            z-index: 10;
+        }
+        .nav-menu-items a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        .game-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .game-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 200px; /* Adjust width as needed */
+            text-align: center;
+            background-color: #f9f9f9; /* Background color for visibility */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for better visual separation */
+            height: auto; /* Ensure height adjusts based on content */
+            position: relative; /* Allows positioning of the button at the bottom */
+        }
+        .game-card img {
+            width: 100%;
+            height: auto;
+            max-height: 150px; /* Ensures image does not stretch beyond this height */
+            object-fit: cover; /* Maintains aspect ratio and fills the box */
+        }
+        .game-card button {
+            border: none;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+            position: absolute; /* Position the button at the bottom */
+            bottom: 0;
+            left: 0;
+            flex-shrink: 0; /* Prevents button from stretching */
+        }
+        .game-card button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px;
+            }
+            .nav-text {
+                display: none;
+            }
+            .nav-menu {
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: 20px;
+            }
+            .nav-menu-items {
+                display: flex; /* Show mobile menu by default */
+                position: absolute;
+                top: 50px; /* Adjusted to fit below the menu button */
+                right: 20px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .nav-text {
+                display: flex; /* Show text links on larger screens */
+            }
+            .nav-menu {
+                display: none; /* Hide menu button on larger screens */
+            }
+            .nav-menu-items {
+                display: none; /* Hide mobile menu on larger screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2em;
+            }
+            .game-card {
+                max-width: 100%; /* Ensure game card fits within the viewport */
+            }
+        }
     </style>
-  </head>
-    <body>
-      <p>hehe</p>
-    </body>
+</head>
+<body>
+    <header>
+        <h1>pixsxd</h1>
+        <nav class="nav-text">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="nav-menu" onclick="toggleMenu()">☰</div>
+        <nav class="nav-menu-items" id="navMenu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="game-card-container">
+            <div class="game-card">
+                <img src="https://i.pinimg.com/474x/01/f7/c3/01f7c3a18b29d3d9e274ffefc16d1016.jpg" alt="Game 1">
+                <button onclick="window.location.href='https://example.com/game1'">Visit Game</button>
+            </div>
+            <div class="game-card">
+                <img src="https://art.pixilart.com/thumb/c1e775f5f07a294.png" alt="Game 2">
+                <button onclick="window.location.href='https://example.com/game2'">Visit Game</button>
+            </div>
+            <div class="game-card">
+              <img src="https://s3-alpha.figma.com/hub/file/4377915145/c96bd096-2855-4246-af1c-027689ace453-cover.png" alt="Game 2">
+              <button onclick="window.location.href='https://example.com/game2'">Visit Game</button>
+            </div>
+            <div class="game-card">
+              <img src="https://toppng.com/uploads/preview/ikachu-pokemon-pixel-art-pikachu-115631561998y4kekkwxh.png" alt="Game 2">
+              <button onclick="window.location.href='https://example.com/game2'">Visit Game</button>
+            </div>
+            <!-- Add more game cards as needed -->
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 pixsxd
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        }
+        
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.getElementById('navMenu').style.display = 'none';
+            } else {
+                document.getElementById('navMenu').style.display = 'none';
+            }
+        });
+    </script>
+</body>
 </html>
-  
